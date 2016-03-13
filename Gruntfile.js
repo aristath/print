@@ -8,6 +8,21 @@ module.exports = function(grunt) {
 				files: { 'style.css' : 'sass/style.scss' }
 			}
 		},
+		postcss: {
+			options: {
+				map: true, // inline sourcemaps
+				// map: {
+				// 	inline: false, // save all sourcemaps as separate files...
+				// 	annotation: 'dist/css/maps/' // ...to the specified directory
+				// },
+				processors: [
+					require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+				]
+			},
+			dist: {
+				src: 'style.css'
+			}
+		},
 		// Generate translation file
 		makepot: {
 			target: {
@@ -42,6 +57,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-wp-i18n');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-wp-readme-to-markdown');

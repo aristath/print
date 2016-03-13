@@ -230,13 +230,14 @@ input,
 select,
 textarea {
   color: #404040;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
 
 h1, h2, h3, h4, h5, h6 {
-  clear: both; }
+  clear: both;
+  font-family: "Roboto Slab", serif; }
 
 p {
   margin-bottom: 1.5em; }
@@ -609,9 +610,6 @@ a {
 .sticky {
   display: block; }
 
-.hentry {
-  margin: 0 0 1.5em; }
-
 .byline,
 .updated:not(.published) {
   display: none; }
@@ -721,5 +719,41 @@ object {
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+# Theme-Specific styles
+--------------------------------------------------------------*/
+body {
+  font-weight: 300; }
+  body #masthead {
+    max-height: 10vh; }
+  body #content {
+    margin: auto 2rem; }
+    body #content #primary #main .post {
+      padding: 3rem 0;
+      border-bottom: 1px solid #ccc;
+      -webkit-column-width: 23em;
+      -moz-column-width: 23em;
+      column-width: 23em;
+      -webkit-column-gap: 3rem;
+      -moz-column-gap: 3rem;
+      column-gap: 3rem;
+      -webkit-column-rule-style: solid;
+      -moz-column-rule-style: solid;
+      column-rule-style: solid;
+      -webkit-column-rule-width: 1px;
+      -moz-column-rule-width: 1px;
+      column-rule-width: 1px;
+      -webkit-column-rule-color: #ccc;
+      -moz-column-rule-color: #ccc;
+      column-rule-color: #ccc; }
+      body #content #primary #main .post .entry-header h2 {
+        font-size: 1.2em;
+        background-color: #000;
+        padding: 1em;
+        margin-top: 0; }
+        body #content #primary #main .post .entry-header h2 a {
+          color: #fff;
+          text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */
