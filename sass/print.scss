@@ -51,6 +51,25 @@ body {
 								text-decoration: none;
 							}
 						}
+
+						.entry-meta {
+							font-size: .85em;
+							text-align: center;
+
+							a {
+								color: #000;
+								text-decoration: none;
+							}
+						}
+						.author-avatar {
+							text-align: center;
+
+							img {
+								-webkit-border-radius: 50%;
+								-moz-border-radius: 50%;
+								border-radius: 50%;
+							}
+						}
 					}
 				}
 

@@ -755,5 +755,17 @@ body {
         body #content #primary #main .post .entry-header h2 a {
           color: #fff;
           text-decoration: none; }
+      body #content #primary #main .post .entry-header .entry-meta {
+        font-size: .85em;
+        text-align: center; }
+        body #content #primary #main .post .entry-header .entry-meta a {
+          color: #000;
+          text-decoration: none; }
+      body #content #primary #main .post .entry-header .author-avatar {
+        text-align: center; }
+        body #content #primary #main .post .entry-header .author-avatar img {
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%; }
 
 /*# sourceMappingURL=style.css.map */
