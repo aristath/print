@@ -44,28 +44,34 @@ if ( ! function_exists( 'print_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function print_entry_footer() {
+
 	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = '<span class="category label">' . get_the_category_list( '</span> <span class="category label">', 'print' ) . '</span>';
-		if ( $categories_list && print_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'print' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
+	?>
+	<?php if ( 'post' === get_post_type() ) : ?>
 
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'print' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'print' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
-	}
+		<?php $categories_list = '<span class="category label">' . get_the_category_list( '</span> <span class="category label">', 'print' ) . '</span>'; ?>
+		<?php if ( $categories_list && print_categorized_blog() ) : ?>
+			<span class="cat-links">
+				<?php printf( esc_html__( 'Posted in %1$s', 'print' ), $categories_list ); ?>
+			</span>
+		<?php endif; ?>
 
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'print' ), esc_html__( '1 Comment', 'print' ), esc_html__( '% Comments', 'print' ) );
-		echo '</span>';
-	}
+		<?php $tags_list = get_the_tag_list( '<span class="tag label">', '</span> <span class="tag label">', '</span>' ); ?>
+		<?php if ( $tags_list ) : ?>
+			<span class="tags-links">
+				<?php printf( esc_html__( 'Tagged %1$s', 'print' ), $tags_list ); ?>
+			</span>
+		<?php endif; ?>
 
-	edit_post_link(
+	<?php endif; ?>
+
+	<?php if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
+		<span class="comments-link">
+			<?php comments_popup_link( esc_html__( 'Leave a comment', 'print' ), esc_html__( '1 Comment', 'print' ), esc_html__( '% Comments', 'print' ) ); ?>
+		</span>
+	<?php endif; ?>
+
+	<?php edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
 			esc_html__( 'Edit %s', 'print' ),
